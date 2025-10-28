@@ -21,3 +21,8 @@ Content-Type: application/json
   "email": "mia.rodriguez@example.com",
   "password": "Password123"
  }
+
+
+### GET - /users/me
+GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2MTYzODM4NywiZXhwIjoxNzYxNzI0Nzg3fQ.w3SvkacWWRJP9etefCLgcNLFrGXG6j3LDClhEeITEGc
