@@ -26,3 +26,18 @@ Content-Type: application/json
 ### GET - /users/me
 GET http://localhost:3000/users/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2MTYzODM4NywiZXhwIjoxNzYxNzI0Nzg3fQ.w3SvkacWWRJP9etefCLgcNLFrGXG6j3LDClhEeITEGc
+
+
+### POST - /posts
+POST http://localhost:3000/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
+
+{
+ "content": "The sunset looked unreal today—like a painting."
+}
+
+
+### GET - /posts
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
