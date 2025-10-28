@@ -1,14 +1,23 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { isValidObjectId, Model } from 'mongoose';
 import { Post } from '@/schema/post.schema';
-import { CreatePostDto } from './dto';
+import { CreatePostDto, UpdatePostDto } from './dto';
 
 @Injectable()
 export class PostService {
   constructor(
     @InjectModel(Post.name) private readonly postModel: Model<Post>,
   ) {}
+
+  private isValidId(id: string): boolean {
+    if (isValidObjectId(id)) return true;
+    throw new BadRequestException(`Invalid Post ID: ${id}`);
+  }
 
   async createPost(createdBy: string, data: CreatePostDto): Promise<Post> {
     const post = await this.postModel.create({
@@ -25,5 +34,34 @@ export class PostService {
       .select('-__v')
       .populate('createdBy', 'name');
     return posts;
+  }
+
+  async getPost(postId: string): Promise<Post> {
+    this.isValidId(postId);
+    const post = await this.postModel
+      .findById(postId)
+      .lean()
+      .select('-__v')
+      .populate('createdBy', 'name');
+
+    if (post) return post;
+
+    throw new ForbiddenException(`Post with ID: ${postId} you can't access.`);
+  }
+
+  async updatePost(
+    createdBy: string,
+    postId: string,
+    data: UpdatePostDto,
+  ): Promise<Post> {
+    this.isValidId(postId);
+    const post = await this.postModel
+      .findOneAndUpdate({ _id: postId, createdBy }, { ...data }, { new: true })
+      .lean()
+      .select('-__v');
+
+    if (post) return post;
+
+    throw new ForbiddenException(`Post with ID: ${postId} you can't update.`);
   }
 }

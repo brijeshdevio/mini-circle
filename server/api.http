@@ -41,3 +41,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmN
 ### GET - /posts
 GET http://localhost:3000/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
+
+
+
+### GET - /posts/:ID
+GET http://localhost:3000/posts/6926b7f916c42e7a73726484
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
+
+
+### PUT - /posts/:ID
+PUT http://localhost:3000/posts/6926b7f916c42e7a73726484
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
+
+{
+ "content": "The sunset looked unreal today—like a painting."
+}
