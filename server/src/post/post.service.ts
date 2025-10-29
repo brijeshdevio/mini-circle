@@ -36,6 +36,16 @@ export class PostService {
     return posts;
   }
 
+  async getPostsByUser(userId: string): Promise<Post[]> {
+    console.log(userId);
+    const posts = this.postModel
+      .find({ createdBy: userId })
+      .lean()
+      .select('-__v -updatedAt')
+      .populate('createdBy', 'name username');
+    return posts;
+  }
+
   async getPost(postId: string): Promise<Post> {
     this.isValidId(postId);
     const post = await this.postModel

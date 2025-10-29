@@ -19,7 +19,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "mia.rodriguez@example.com",
+  "email": "ava.mitchell@example.com",
   "password": "Password123"
  }
 
@@ -29,10 +29,15 @@ GET http://localhost:3000/users/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2MTYzODM4NywiZXhwIjoxNzYxNzI0Nzg3fQ.w3SvkacWWRJP9etefCLgcNLFrGXG6j3LDClhEeITEGc
 
 
+### GET - /users/:USERNAME/posts
+GET http://localhost:3000/users/ava_mitchell/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZiZTMxNWM0OTJmODcwNGQ4Y2I1MCIsImlhdCI6MTc2MTcyODYzMCwiZXhwIjoxNzYxODE1MDMwfQ.OhzmseFYPORUZxrhd2DtXJgTyBEoZjBtsplypaRjIV8
+
+
 ### POST - /posts
 POST http://localhost:3000/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZiZTMxNWM0OTJmODcwNGQ4Y2I1MCIsImlhdCI6MTc2MTcyODYzMCwiZXhwIjoxNzYxODE1MDMwfQ.OhzmseFYPORUZxrhd2DtXJgTyBEoZjBtsplypaRjIV8
 
 {
  "content": "The sunset looked unreal today—like a painting."

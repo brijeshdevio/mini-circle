@@ -1,5 +1,9 @@
 import { User } from '@/schema/user.schema';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
@@ -18,5 +22,15 @@ export class UserService {
     if (user) return user;
 
     throw new UnauthorizedException('You are not authorized');
+  }
+
+  async getUserByUsername(username: string): Promise<User> {
+    const user = await this.userModel
+      .findOne({ username })
+      .lean()
+      .select('username name');
+    if (user) return user;
+
+    throw new ForbiddenException(`User with username: ${username} not found`);
   }
 }
