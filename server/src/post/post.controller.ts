@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -55,5 +56,16 @@ export class PostController {
     const createdBy = req.user.id;
     const post = await this.postService.updatePost(createdBy, postId, body);
     return res.json({ post, message: 'Post updated successfully' });
+  }
+
+  @Delete(':postId')
+  async handleDeletePost(
+    @Req() req: { user: { id: string } },
+    @Param('postId') postId: string,
+    @Res() res: Response,
+  ): Promise<Response> {
+    const createdBy = req.user.id;
+    const post = await this.postService.deletePost(createdBy, postId);
+    return res.json({ post, message: 'Post deleted successfully' });
   }
 }

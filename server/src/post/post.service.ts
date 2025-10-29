@@ -64,4 +64,17 @@ export class PostService {
 
     throw new ForbiddenException(`Post with ID: ${postId} you can't update.`);
   }
+
+  async deletePost(createdBy: string, postId: string): Promise<Post> {
+    this.isValidId(postId);
+    const post = await this.postModel
+      .findOneAndDelete({ _id: postId, createdBy })
+      .lean()
+      .select('-__v')
+      .populate('createdBy', 'name');
+
+    if (post) return post;
+
+    throw new ForbiddenException(`Post with ID: ${postId}, you can't delete.`);
+  }
 }

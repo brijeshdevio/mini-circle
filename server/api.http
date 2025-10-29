@@ -57,3 +57,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmN
 {
  "content": "The sunset looked unreal today—like a painting."
 }
+
+
+### DELETE - /posts/:ID
+DELETE http://localhost:3000/posts/6926b7f916c42e7a73726484
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
