@@ -29,11 +29,16 @@ export class AuthService {
       await this.userModel.create(data);
     } catch (error: unknown) {
       const CONFLICT_ERROR_CODE = 11000;
-      const err = error as { code: number };
+      const err = error as { code: number; keyValue: { username: string } };
 
       if (err?.code === CONFLICT_ERROR_CODE) {
+        if (err.keyValue.username === data.username) {
+          throw new ConflictException(
+            `User with username '${data.username}' already taken. please try another username.`,
+          );
+        }
         throw new ConflictException(
-          `User with email '${data.email}' already exists`,
+          `User with email '${data.email}' already exists.`,
         );
       }
       throw error;
