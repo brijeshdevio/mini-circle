@@ -1,5 +1,5 @@
-import { useLogin } from "@/hooks/useAuth";
-import type { LoginType } from "@/types";
+import { useRegister } from "@/hooks/useAuth";
+import type { RegisterType } from "@/types";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,12 @@ const formFields = [
     type: "text",
     name: "name",
     placeholder: "Jasmine Doe",
+  },
+  {
+    label: "Username",
+    type: "text",
+    name: "username",
+    placeholder: "jasmine_doe",
   },
   {
     label: "Email Address",
@@ -25,13 +31,13 @@ const formFields = [
 ];
 
 export function Register() {
-  const { mutate, isPending } = useLogin();
+  const { mutate, isPending } = useRegister();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     const data = Object.fromEntries(formData.entries());
-    mutate(data as LoginType);
+    mutate(data as unknown as RegisterType);
   };
 
   return (

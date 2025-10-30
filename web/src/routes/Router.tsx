@@ -1,14 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Dashboard, Home, Login, Profile, Register } from "@/pages";
-import { AuthProvider } from "@/auth";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "@/auth";
+import { Dashboard, Home, Login, Profile, Register } from "@/pages";
+import { AuthProvider, useAuth } from "@/auth";
 
 function RestrictedRoute() {
   const { user, loading } = useAuth();
 
   if (loading) return <p>Loading...</p>;
-  if (user) return <Navigate to="/c" replace />;
+  if (user) return <Navigate to="/dashboard" replace />;
 
   return <Outlet />;
 }
@@ -34,7 +33,7 @@ export function Router() {
           </Route>
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile/:username" element={<Profile />} />
           </Route>
         </Routes>
