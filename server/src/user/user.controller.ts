@@ -34,4 +34,13 @@ export class UserController {
     const posts = await this.postService.getPostsByUser(String(_id));
     return res.json({ posts });
   }
+
+  @Get(':username')
+  async handleGetUser(
+    @Param('username') username: string,
+    @Res() res: Response,
+  ): Promise<Response> {
+    const user = await this.userService.getUserByUsername(username);
+    return res.json({ user });
+  }
 }

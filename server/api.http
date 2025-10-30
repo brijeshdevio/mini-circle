@@ -34,6 +34,11 @@ GET http://localhost:3000/users/ava_mitchell/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZiZTMxNWM0OTJmODcwNGQ4Y2I1MCIsImlhdCI6MTc2MTcyODYzMCwiZXhwIjoxNzYxODE1MDMwfQ.OhzmseFYPORUZxrhd2DtXJgTyBEoZjBtsplypaRjIV8
 
 
+### GET - /users/:USERNAME
+GET http://localhost:3000/users/ava_mitchell
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZiZTMxNWM0OTJmODcwNGQ4Y2I1MCIsImlhdCI6MTc2MTcyODYzMCwiZXhwIjoxNzYxODE1MDMwfQ.OhzmseFYPORUZxrhd2DtXJgTyBEoZjBtsplypaRjIV8
+
+
 ### POST - /posts
 POST http://localhost:3000/posts
 Content-Type: application/json
@@ -47,7 +52,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZiZTMxN
 ### GET - /posts
 GET http://localhost:3000/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZhZjRmNmY1YjIxMDA5MzdlYTMzMiIsImlhdCI6MTc2NDE0NDc4NiwiZXhwIjoxNzY0MjMxMTg2fQ.tolWE0z-rM3FnWrjGMjFpmJr5apKXUWBAC8B1UT7_LU
-
 
 
 ### GET - /posts/:ID
