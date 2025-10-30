@@ -31,8 +31,8 @@ export class PostService {
     const posts = this.postModel
       .find()
       .lean()
-      .select('-__v')
-      .populate('createdBy', 'name');
+      .select('-__v -updatedAt')
+      .populate('createdBy', 'name username');
     return posts;
   }
 
