@@ -32,3 +32,15 @@ export interface MessageProps {
   createdAt: string;
   message: string;
 }
+
+export interface PostItemProps {
+  _id: string;
+  content: string;
+  createdBy: {
+    _id: string;
+    name: string;
+    username: string;
+  };
+  createdAt: string;
+  likes: number;
+}
